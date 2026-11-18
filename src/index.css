@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bricolage Grotesque", ui-serif, Georgia, serif;
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+
+  --color-paper: #fbf7ef;
+  --color-card: #ffffff;
+  --color-ink: #1d2a28;
+  --color-muted: #5f6d6a;
+  --color-line: #e7e0d2;
+  --color-pine: #143d3a;
+  --color-pine-soft: #e3efe9;
+  --color-marigold: #f0a92b;
+  --color-marigold-soft: #fdf0d5;
+  --color-alarm: #c8412e;
+  --color-alarm-soft: #fbe6e1;
+  --color-leaf: #2f8a5b;
+  --color-leaf-soft: #e1f3e8;
+}
+
+html, body, #root { min-height: 100%; }
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tag-dash {
+  background-image: repeating-linear-gradient(90deg, var(--color-line) 0 8px, transparent 8px 14px);
+  height: 2px;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #efe8da 25%, #f7f2e8 37%, #efe8da 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease infinite;
+  border-radius: 0.75rem;
+}
+@keyframes shimmer { 0% { background-position: 100% 50%; } 100% { background-position: 0 50%; } }
+
+.rise { animation: rise .45s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+.sheet-in { animation: sheet .3s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes sheet { from { transform: translateY(100%); } to { transform: none; } }
+
+.grain::before {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .35;
+  background-image: radial-gradient(rgba(20,61,58,.08) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.leaflet-container { font-family: var(--font-sans); border-radius: 0.9rem; }
